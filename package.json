@@ -1,0 +1,28 @@
+{
+  "name": "howto-release-drafter",
+  "version": "1.0.0",
+  "description": "POC to use release-drafter github action to create releases",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inigomarquinez/howto-release-drafter.git"
+  },
+  "keywords": [
+    "release"
+  ],
+  "author": "Íñigo Marquínez Prado",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/inigomarquinez/howto-release-drafter/issues"
+  },
+  "homepage": "https://github.com/inigomarquinez/howto-release-drafter#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "husky": "^7.0.0"
+  }
+}
