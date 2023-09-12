@@ -3,7 +3,7 @@
  * @param {string} name Name of the person to say hello
  */
 const sayHello = (name) => {
-  console.log(`Hello ${name}!`);
+  console.log(`Hello ${name}! How are you today?`);
 }
 
 /**
