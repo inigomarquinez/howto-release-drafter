@@ -23,18 +23,32 @@ version-resolver:
 #   With the categories option you can categorize pull requests in release
 #   notes using labels.
 categories:
+  - title: '💥 Breaking changes'
+    labels:
+      - 'breaking-change'
   - title: '🚀 Features'
     labels:
-      - 'feature'
-      - 'enhancement'
+      - 'feat'
   - title: '🐛 Bug Fixes'
     labels:
       - 'fix'
-      - 'bugfix'
-      - 'bug'
   - title: '🧰 Maintenance'
-    label: 'chore'
-
+    labels:
+      - 'chore'
+  - title: '🧪 Testing'
+    labels:
+      - 'test'
+  - title: '📝 Documentation'
+    labels:
+      - 'docs'
+  - title: '🧹 Others'
+    labels:
+      - 'ci'
+      - 'build'
+      - 'perf'
+      - 'refactor'
+      - 'revert'
+      - 'style'
 
 # https://github.com/release-drafter/release-drafter#autolabeler
 #   You can add automatically a label into a pull request, with the autolabeler
@@ -42,19 +56,43 @@ categories:
 #   and body (regex). Matchers are evaluated independently; the label will be
 #   set if at least one of the matchers meets the criteria.
 autolabeler:
+  - label: 'breaking-change'
+    title:
+      - '/^\S+!{1}:{1}\s/i'
+  - label: 'build'
+    title:
+      - '/^build/i'
   - label: 'chore'
     title:
-      - '/chore/i'
-  - label: 'bug'
+      - '/^chore/i'
+  - label: 'ci'
     title:
-      - '/fix/i'
-    branch:
-      - '/fix\/.+/'
-  - label: 'enhancement'
+      - '/^ci/i'
+  - label: 'docs'
     title:
-      - '/feat/i'
-    branch:
-      - '/feature\/.+/'
+      - '/^docs/i'
+  - label: 'feat'
+    title:
+      - '/^feat/i'
+  - label: 'fix'
+    title:
+      - '/^fix/i'
+  - label: 'perf'
+    title:
+      - '/^perf/i'
+  - label: 'refactor'
+    title:
+      - '/^refactor/i'
+  - label: 'revert'
+    title:
+      - '/^revert/i'
+  - label: 'style'
+    title:
+      - '/^style/i'
+  - label: 'test'
+    title:
+      - '/^test/i'
+
 
 template: |
   ## What’s Changed
