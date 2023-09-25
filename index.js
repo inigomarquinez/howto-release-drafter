@@ -2,8 +2,8 @@
  * Function to say hello
  * @param {string} name Name of the person to say hello
  */
-const sayHello = (name) => {
-  console.log(`Hello ${name}! How are you today?`);
+const sayHello = (name, surname) => {
+  console.log(`Hello ${name} ${surname}! How are you today?`);
 }
 
 /**
@@ -14,7 +14,7 @@ const sayGodbye = (name) => {
   console.log(`Bye bye ${name} 👋`);
 }
 
-sayHello('World');
+sayHello('World', 'Wide');
 sayGodbye('World');
 
 module.exports = {
