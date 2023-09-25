@@ -1,4 +1,5 @@
 # https://github.com/marketplace/actions/release-drafter#configuration
+
 name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
@@ -17,38 +18,20 @@ version-resolver:
   patch:
     labels:
       - 'patch'
-  default: patch
 
-# https://github.com/release-drafter/release-drafter#version-resolver
+# https://github.com/release-drafter/release-drafter#categorize-pull-requests
 #   With the categories option you can categorize pull requests in release
 #   notes using labels.
 categories:
   - title: '💥 Breaking changes'
     labels:
-      - 'breaking-change'
-  - title: '🚀 Features'
+      - 'major'
+  - title: '🚀 New features'
     labels:
-      - 'feat'
-  - title: '🐛 Bug Fixes'
+      - 'minor'
+  - title: '🧰 Others'
     labels:
-      - 'fix'
-  - title: '🧰 Maintenance'
-    labels:
-      - 'chore'
-  - title: '🧪 Testing'
-    labels:
-      - 'test'
-  - title: '📝 Documentation'
-    labels:
-      - 'docs'
-  - title: '🧹 Others'
-    labels:
-      - 'ci'
-      - 'build'
-      - 'perf'
-      - 'refactor'
-      - 'revert'
-      - 'style'
+      - 'patch'
 
 # https://github.com/release-drafter/release-drafter#autolabeler
 #   You can add automatically a label into a pull request, with the autolabeler
@@ -56,43 +39,15 @@ categories:
 #   and body (regex). Matchers are evaluated independently; the label will be
 #   set if at least one of the matchers meets the criteria.
 autolabeler:
-  - label: 'breaking-change'
+  - label: 'major'
     title:
-      - '/^\S+!{1}:{1}\s/i'
-  - label: 'build'
+      - '/^\S+!{1}:{1}\s{1}\S*/i'
+  - label: 'minor'
     title:
-      - '/^build/i'
-  - label: 'chore'
+      - '/^feat:{1}\s{1}\S*/i'
+  - label: 'patch'
     title:
-      - '/^chore/i'
-  - label: 'ci'
-    title:
-      - '/^ci/i'
-  - label: 'docs'
-    title:
-      - '/^docs/i'
-  - label: 'feat'
-    title:
-      - '/^feat/i'
-  - label: 'fix'
-    title:
-      - '/^fix/i'
-  - label: 'perf'
-    title:
-      - '/^perf/i'
-  - label: 'refactor'
-    title:
-      - '/^refactor/i'
-  - label: 'revert'
-    title:
-      - '/^revert/i'
-  - label: 'style'
-    title:
-      - '/^style/i'
-  - label: 'test'
-    title:
-      - '/^test/i'
-
+      - '/^(build|chore|ci|docs|fix|perf|refactor|revert|style|test):{1}\s{1}\S*/i'
 
 template: |
   ## What’s Changed
